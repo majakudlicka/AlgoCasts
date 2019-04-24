@@ -21,36 +21,33 @@ function anagrams(stringA, stringB) {
         else hashA[char] = 1;
     }
 
-    // const orderedA = {};
-    // Object.keys(hashA).sort().forEach(function(key) {
-    //     orderedA[key] = hashA[key];
-    // });
-
     for (let char of stringB) {
         if (hashB[char]) hashB[char] ++;
         else hashB[char] = 1;
     }
 
-    if (Object.entries(hashA) !== Object.entries(hashB)) isSame = false;
-
+    if (Object.entries(hashA).length !== Object.entries(hashB).length) isSame = false;
 
 
     for (let key in hashA) {
+        console.log(key)
         if (!hashB[key] || hashB[key] !== hashA[key]) isSame = false;
     }
 
-    Object.entries(hashA).forEach()
-
     return isSame;
+
+    // Variant 2
+    // const orderedA = {};
+    // Object.keys(hashA).sort().forEach(function(key) {
+    //     orderedA[key] = hashA[key];
+    // });
 
     // const orderedB = {};
     // Object.keys(hashB).sort().forEach(function(key) {
     //     orderedB[key] = hashB[key];
     // });
-    //
-    // return JSON.stringify(orderedA) === JSON.stringify(orderedB);
 
-    // TODO: How would you compare the two if you couldn't sort
+    // return JSON.stringify(orderedA) === JSON.stringify(orderedB);
 }
 
 module.exports = anagrams;
