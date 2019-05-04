@@ -7,6 +7,13 @@
 //   vowels('Why do you ask?') --> 4
 //   vowels('Why?') --> 0
 
-function vowels(str) {}
+function vowels(str) {
+    const regex = new RegExp(/[aeiou]/, 'i');
+    let count = 0;
+    str.split('').forEach(char=> {
+        if (regex.test(char))count++;
+    });
+    return count;
+}
 
 module.exports = vowels;
