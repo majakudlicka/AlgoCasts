@@ -91,6 +91,18 @@ class LinkedList {
         }
     }
 
+    forEach(func) {
+        if (!this.head) return;
+        let node = this.head;
+        let index = 0;
+
+        while (node) {
+            func(node, index);
+            node = node.next;
+            index++;
+        }
+    }
+
     insertLast(data) {
         const node = new Node(data);
         const lastNode = this.getLast();
